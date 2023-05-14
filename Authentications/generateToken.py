@@ -3,6 +3,7 @@ import jwt
 
 def generate_token_super( password , id):
     secret_key = "secret key"
+    print(secret_key)
     encoded_jwt = jwt.encode({"password": password,
                               "id":id,
                               # "expire": int(time.time()) + 600
