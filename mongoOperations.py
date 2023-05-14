@@ -28,6 +28,7 @@ def login_admin(id , password):
         result = collection_admin.find_one({'_id': ObjectId(id)})
         print(result['password'])
         if result['password'] == password:
+            print(result['password'])
             token = jwt.generate_token_super(password=password , id=id)
             print(token)
             return {
