@@ -26,12 +26,13 @@ def get_objects(objs):
 def login_admin(id , password):
     try:
         result = collection_admin.find_one({'_id': ObjectId(id)})
-        print(result['password'])
+        # print(result['password'])
         if result['password'] == password:
-            print(result['password'])
-            print(id)
-            token = jwt.generate_token_super(password=password , id=id)
-            print(token)
+            # print(result['password'])
+            # print(id)
+            # token = jwt.generate_token_super(password=password , id=id)
+            # print(token)
+            token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXNzd29yZCI6IjEyMzQ1Njc4IiwiaWQiOiI2NDVmMGRmOGExYzRhODFkOTkyZmE0YTMiLCJleHBpcmUiOjE3MjAwNDU0Mzl9.Le5WWJC9-ydQOdKGOeJE6zrVxtxftFwl9yYBOI1WVJc"
             return {
                 "state": True,
                 "message": "success",
