@@ -29,6 +29,7 @@ def login_admin(id , password):
         print(result['password'])
         if result['password'] == password:
             print(result['password'])
+            print(id)
             token = jwt.generate_token_super(password=password , id=id)
             print(token)
             return {
