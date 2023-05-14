@@ -26,8 +26,10 @@ def get_objects(objs):
 def login_admin(id , password):
     try:
         result = collection_admin.find_one({'_id': ObjectId(id)})
+        print(result['password'])
         if result['password'] == password:
             token = jwt.generate_token_super(password=password , id=id)
+            print(token)
             return {
                 "state": True,
                 "message": "success",
@@ -41,7 +43,7 @@ def login_admin(id , password):
     except:
         return {
             "state": False,
-            "message": "error"
+            "message": "error mongo"
         }
 
 

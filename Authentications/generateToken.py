@@ -8,6 +8,7 @@ def generate_token_super( password , id):
                               "expire": int(time.time()) + 600
                               }, secret_key,
                              algorithm="HS256")
+    print(encoded_jwt)
     return encoded_jwt
 
 def validate_token(token , collection_name):
