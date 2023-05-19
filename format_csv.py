@@ -6,5 +6,4 @@ def format_csv():
     df1 = df1.drop(df2.index.tolist())
     df2 = df1[df1['/acceptedAnswer/text'].isna()]
     df1 = df1.drop(df2.index.tolist())
-    print(df1['/name'])
     return df1
