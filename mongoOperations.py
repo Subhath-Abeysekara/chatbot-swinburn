@@ -1,6 +1,7 @@
 import time
 from bson import ObjectId
 import Authentications.generateToken as jwt
+import CheckMatching
 import connection_mongo
 import updateCSV
 
@@ -52,10 +53,13 @@ def login_admin(id , password):
 
 def insert_question(question):
     try:
-        result = collection_queston.find({'question': question})
-        result_list = list(result)
-        print(len(result_list))
-        if len(result_list)>0:
+        results = collection_queston.find()
+        max_matching = 0
+        for result in results:
+            matching = CheckMatching.check_matching_value(result['question'], question)
+            if matching >= max_matching:
+                max_matching = matching
+        if max_matching >= 0.7:
             return {
                 "state": True,
                 "message": "No matching answer",
